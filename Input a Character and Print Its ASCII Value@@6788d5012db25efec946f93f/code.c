@@ -1,4 +1,4 @@
-#include <stdio.h>
+#include <stydio.h>
 int main(){
     char ch;
     scanf("%c", &ch);
