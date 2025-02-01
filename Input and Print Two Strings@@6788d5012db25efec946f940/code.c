@@ -1,9 +1,7 @@
 #include <stdio.h>
-
 int main(){
-    char mystring1[50], mystring2[50], doublestring[50];
-    scanf("%c %c %c", &mystring1, &mystring2, &doublestring);
-    doublestring = mystring1 and mystring2;
-    printf("You entered: %c\n", doublestring); 
+    char str1[100], str2[100];
+    scanf("%s%s", &str1, &str2);
+    printf("You entered: %s and %s\n", str1, str2);
     return 0;
 }
