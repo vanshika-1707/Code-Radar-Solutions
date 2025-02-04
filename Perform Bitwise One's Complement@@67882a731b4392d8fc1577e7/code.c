@@ -2,7 +2,6 @@
 int main(){
     int num;
     scanf("%d", &num);
-    int onesComplement = ~num;
-    printf(num, onesComplement);
+    printf("%d", ~num);
     return 0;
 }
