@@ -9,7 +9,7 @@ int main(){
     else {
         printf("consonant\n");
     }
-    else if (isdigit(ch)){
+     if (isdigit(ch)){
         printf("Digit");
     }
     else{
