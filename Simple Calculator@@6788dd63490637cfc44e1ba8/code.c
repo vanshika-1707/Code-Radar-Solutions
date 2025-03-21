@@ -1,32 +1,30 @@
 #include <stdio.h>
-
-int main() {
-  int num1, num2;
-  char operator;
-
-  printf("Enter two numbers and an operator (+, -, *, /): ");
-  scanf("%d %d %c", &num1, &num2, &operator);
-
-  switch (operator) {
-    case '+':
-      printf("%d + %d = %d\n", num1, num2, num1 + num2);
-      break;
-    case '-':
-      printf("%d - %d = %d\n", num1, num2, num1 - num2);
-      break;
-    case '*':
-      printf("%d * %d = %d\n", num1, num2, num1 * num2);
-      break;
-    case '/':
-      if (num2 == 0) {
-        printf("Error: Division by zero!\n");
-      } else {
-        printf("%d / %d = %d\n", num1, num2, num1 / num2);
-      }
-      break;
-    default:
-      printf("Error: Invalid operator!\n");
+int main(){
+  int a, b;
+  char op;
+  if(scanf("%d %d %c", &a, &b, &op) != 3){
+    printf("error\n");
+    return 1;
   }
-
-  return 0;
+  if (op == '+'){
+    printf("%d", a + b);
+  }
+  else if(op == '-'){
+    printf("%d", a - b);
+  }
+  else if (op == '*'){
+    printf("%d", a * b);
+  }
+  else if (op == '/'){
+    if (b == 0){
+      printf("error\n");
+    }
+    else{
+      printf("%d", a / b);
+    }
+}
+else{
+  printf("error\n");
+}
+return 0;
 }
