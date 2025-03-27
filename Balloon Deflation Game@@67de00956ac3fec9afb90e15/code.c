@@ -3,7 +3,7 @@
 
 // Function to compare two integers for qsort
 int compare(const void *a, const void *b) {
-    return (*(int *)b - *(int *)a; // Descending order
+    return (int *)b - *(int *)a; // Descending order
 }
 
 // Function to remove duplicates from the array and return the count
