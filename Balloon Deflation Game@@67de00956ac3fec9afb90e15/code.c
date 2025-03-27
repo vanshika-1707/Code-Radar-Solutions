@@ -1,60 +1,53 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-void deflateBalloons(int air[], int n) {
-    // Loop until all balloons are deflated
-    while (1) {
-        int minAir = 1001; // Assume air levels cannot exceed 1000
-        int allDeflated = 1; // Flag to check if all are deflated
-        
-        // Find the minimum air level
-        for (int i = 0; i < n; i++) {
-            if (air[i] > 0) { // Check if the balloon is not deflated
-                allDeflated = 0; // There is at least one balloon still inflated
-                if (air[i] < minAir) {
-                    minAir = air[i]; // Update minimum air
-                }
+// Function to compare two integers for qsort
+int compare(const void *a, const void *b) {
+    return (*(int *)b - *(int *)a; // Descending order
+}
+
+// Function to remove duplicates from the array and return the count
+int remove_duplicates(int *arr, int size) {
+    int uniqueCount = 0;
+    for (int i = 0; i < size; i++) {
+        // Check if arr[i] is not already in arr[0..uniqueCount-1]
+        int j;
+        for (j = 0; j < uniqueCount; j++) {
+            if (arr[i] == arr[j]) {
+                break;
             }
         }
-        
-        // Exit if all balloons are deflated
-        if (allDeflated) {
-            break;
+        if (j == uniqueCount) {
+            arr[uniqueCount++] = arr[i]; // Only add unique elements
         }
-        
-        // Deflate the balloons by the minimum amount found
-        for (int i = 0; i < n; i++) {
-            if (air[i] > 0) {
-                air[i] -= minAir; // Deflate the balloon
-                if (air[i] < 0) {
-                    air[i] = 0; // Ensure it does not go below zero
-                }
-            }
-        }
-        
-        // Here you can add code to print the current state of balloons if required
-        printf("Air levels after deflation: ");
-        for (int i = 0; i < n; i++) {
-            printf("%d ", air[i]);
-        }
-        printf("\n");
     }
+    return uniqueCount;
 }
 
 int main() {
     int n;
-
-    // Read number of balloons
+    
+    // Read the number of elements
     scanf("%d", &n);
+    int *arr = (int *)malloc(n * sizeof(int)); // Dynamically allocate memory
 
-    int air[1000];
-
-    // Read air level in each balloon
+    // Read the array elements
     for (int i = 0; i < n; i++) {
-        scanf("%d", &air[i]);
+        scanf("%d", &arr[i]);
     }
 
-    // Call the deflateBalloons function
-    deflateBalloons(air, n);
+    // Remove duplicates
+    int uniqueCount = remove_duplicates(arr, n);
 
+    // Sort the unique elements in descending order
+    qsort(arr, uniqueCount, sizeof(int), compare);
+
+    // Print the results
+    for (int i = 0; i < uniqueCount; i++) {
+        printf("%d\n", arr[i]);
+    }
+
+    // Free allocated memory
+    free(arr);
     return 0;
 }
