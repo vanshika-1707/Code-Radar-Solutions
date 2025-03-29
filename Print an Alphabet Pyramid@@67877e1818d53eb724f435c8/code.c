@@ -7,7 +7,7 @@ int main(){
             printf(" ");
         }
         for (int k = 0; k <= i; k++){
-            printf("%d", 'A' + k)
+            printf("%d", 'A' + k);
         }
         printf("\n");
     }
