@@ -21,24 +21,3 @@ void printArray(int arr[], int n) {
     }
     printf("\n");
 }
-
-int main() {
-    int n;
-    
-    // Read the number of elements
-    scanf("%d", &n);
-    int arr[n];
-
-    // Read the elements
-    for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-    }
-
-    // Sort the array
-    bubbleSort(arr, n);
-
-    // Print the sorted array
-    printArray(arr, n);
-
-    return 0;
-}
