@@ -1,14 +1,21 @@
 #include <stdio.h>
-
-// Function to print Fibonacci series
-void fibonacciSeries(int n) {
+void fibonacciSeries(int n){
     int a = 0, b = 1, next;
-
-    for (int i = 0; i < n; i++) {
-        printf("%d ", a);
+    for (int i = 1; i < n; i++){
+        printf("%d", a);
         next = a + b;
         a = b;
         b = next;
     }
-    printf("\n"); // Move to the next line after printing the series
+    printf("\n");
 }
+int main(){
+    int n;
+    scanf("%d", &n);
+    if ( n <= 0){
+        printf("Invalid input\n");
+        return 0;
+    }
+    return 0;
+}
+
